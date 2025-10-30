@@ -1,0 +1,10 @@
+START
+SET first, second, third
+IF first > second AND first > third THEN
+    DISPLAY first
+ELSE IF second > first AND second > third THEN
+    DISPLAY second
+ELSE
+    DISPLAY third
+ENDIF
+END
