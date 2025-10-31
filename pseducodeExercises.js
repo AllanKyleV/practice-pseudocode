@@ -159,3 +159,33 @@ console.log(countEvenNumber(array));
     console.log(reverseArrayElements(array));
     // [ 5, 4, 3, 2, 1 ]
 }
+
+// 7. Find the Maximum Number in an Array.
+
+// Pseducode:
+// START
+// SET numbers TO [3, 7, 2, 9, 5]
+// SET max TO first element of numbers
+// FOR each number in numbers
+// IF number > max THEN
+//      SET max TO number
+// ENDIF
+// ENDFOR
+// DISPLAY max
+// END
+
+const numbers = [3, 7, 2, 9, 5];
+
+function findMaxNum(numbers) {
+    let max = numbers[0];
+    numbers.forEach(number => {
+        if (number > max) {
+            max = number;
+        };
+    });
+    return max;
+}
+
+console.log(findMaxNum(numbers));
+// 9
+
