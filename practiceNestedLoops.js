@@ -178,7 +178,7 @@ console.log(obj);
 // ENDFOR
 // END
 
-console.log('--------------')
+console.log('--------------');
 const arr1 = [1, 2, 3];
 const arr2 = [2, 3, 4];
 
@@ -193,30 +193,30 @@ arr1.forEach(i => {
         if (i === j) console.log(`${i} matches`);
     });
 })
+console.log('--------------');
 
 // 5. Create a multiplication table.
 // Pseudocode:
 // START
-// SET num1 to 1
-// SET num2 to 3
-// CREATE function multiplicationTable(num1, num2)
-//      FOR i FROM 0 TO LENGTH of num1 - 1
-//          FOR j FROM 0 TO LENGTH of num2 - 1
-//              DISPLAY num1[i] `x` num2[i] '=' num[i] * num2[2]
-//          ENDFOR
+// ...
+
+
+// Mini challenged:
+// Create a function that generates a multiplication table from 1 up to any number the user passes in.
+// Pseudocode:
+// START
+// CREATE a function multiplication() THAT ACCEPTS AN ARGUMENT limit
+// FOR i FROM 1 TO limit
+//      FOR j FROM 1 TO limit
+//          DISPLAY i x j = i * j
 //      ENDFOR
+// ENDFOR
 // END
 
-console.log('--------------')
-const num1 = 1;
-const num2 = 3;
+function multiplication(limit) {
+    for (let i = 1; i <= limit; i++) {
+        for (let j = 1; j <= limit; j++) console.log(`${i} x ${j} = ${i * j}`);
+    }
+}
 
-function multiplicationTable(num1, num2) {
-    for (let i = 0; i < num1; i++) {
-        for (let j = 0; j < num2; j++) {
-            return `${i} x ${j} = ${i * j}`;
-        };
-    };
-}d 
-
-console.log(multiplicationTable(num1, num2));
+multiplication(3);
