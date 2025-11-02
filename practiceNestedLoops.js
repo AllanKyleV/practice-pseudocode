@@ -159,7 +159,64 @@ console.log(obj);
 
     array.forEach((a, i) => {
         array.forEach((b, j) => {
-            if (array[i] + array[j] === target) console.log(`${b} + ${a}`);
+            if (j > i && a + b === target) console.log(`${a} + ${b}`);
         });
     });
 }
+
+// 4. Compare elements between two arrays.
+// Pseudocode: 
+// START
+// SET arr1 TO [1, 2, 3]
+// SET arr2 TO [2, 3, 4]
+// FOR i FROM 0 TO LENGTH of arr1 - 1
+//      FOR j FROM 0 TO LENGTH of arr2 - 1
+//          IF arr1[i] = arr2[j] THEN
+//              DISPLAY arr1[i] matches
+//          ENDIF
+//      ENDFOR
+// ENDFOR
+// END
+
+console.log('--------------')
+const arr1 = [1, 2, 3];
+const arr2 = [2, 3, 4];
+
+// for (let i = 0; i < arr1.length; i++) {
+//     for (let j = 0; j < arr1.length; j++) {
+//         if (arr1[i] === arr2[j]) console.log(`${arr1[i]} matches`);
+//     };
+// }
+
+arr1.forEach(i => {
+    arr2.forEach(j => {
+        if (i === j) console.log(`${i} matches`);
+    });
+})
+
+// 5. Create a multiplication table.
+// Pseudocode:
+// START
+// SET num1 to 1
+// SET num2 to 3
+// CREATE function multiplicationTable(num1, num2)
+//      FOR i FROM 0 TO LENGTH of num1 - 1
+//          FOR j FROM 0 TO LENGTH of num2 - 1
+//              DISPLAY num1[i] `x` num2[i] '=' num[i] * num2[2]
+//          ENDFOR
+//      ENDFOR
+// END
+
+console.log('--------------')
+const num1 = 1;
+const num2 = 3;
+
+function multiplicationTable(num1, num2) {
+    for (let i = 0; i < num1; i++) {
+        for (let j = 0; j < num2; j++) {
+            return `${i} x ${j} = ${i * j}`;
+        };
+    };
+}d 
+
+console.log(multiplicationTable(num1, num2));

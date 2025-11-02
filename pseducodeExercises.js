@@ -188,4 +188,3 @@ function findMaxNum(numbers) {
 
 console.log(findMaxNum(numbers));
 // 9
-

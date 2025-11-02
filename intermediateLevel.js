@@ -101,6 +101,5 @@ console.log(countVowels('hello world'));
 // SET sortedArray TO EMPTY array
 // SET largest TO first element OF newArray
 // FOR each number OF newArray
-//      IF number > than largest
-//          
+//      IF number > largest
 //          
