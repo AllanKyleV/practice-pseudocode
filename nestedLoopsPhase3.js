@@ -37,6 +37,7 @@ function countDuplicates(array) {
 }
 
 console.log(countDuplicates(array));
+console.log('----------');
 
 // Extension challenge: Find which number appeared the most.
 // Pseudocode:
@@ -73,16 +74,271 @@ function findMostNumber(obj) {
 const counts = countDuplicates(array);
 const mostNumbers = findMostNumber(counts);
 console.log(mostNumbers);
+console.log('----------');
 
-
-
-// 2. Find missing number → detect a missing integer in a sequence.
+// Warm Up Challenge.
+// Task: Count how many even numbers are in an array.
 // Pseudocode:
 // START
+// SET array to [1, 2, 3, 4, 5, 6]
+// CREATE function countEVenNumbers() that accepts an argument array
+// SET count TO 0
+// FOR i FROM 0 TO LENGTH OF array - 1
+//      IF array[i] MOD 2 = 0 THEN
+//          INCREMENT count
+//      ENDIF
+// ENDFOR
+// RETURN count
+// END
+
+{
+    const array = [1, 2, 3, 4, 5, 6];
+    function countEVenNumbers(array) {
+        // let count = 0;
+        // for (let i = 0; i < array.length; i++) {
+        //     if (array[i] % 2 === 0) count++;
+        // };
+        // return count;
+
+        return array.filter(num => num % 2 === 0).length;
+    }
+
+    const count = countEVenNumbers(array);
+    console.log(`There ${count === 1 ? 'is' : 'are'} ${count} even number${count === 1 ? '' : 's'}.`);
+}
+
+console.log('----------');
+
 // 
 
+// 2. Find missing number → detect a missing integer in a sequence.
+// Input: [1, 2, 4, 5]
+// Output: missing 3
+
+// Algorithm:
+// Find the largest and lowest number.
+// Create newArr in range of lowest to largest.
+// Sum the newArr and arr.
+// Return sumOfNewArr - sumOfArr
+
+// Pseudocode:
+// START
+// SET arr to [1, 2, 4, 5]
+// CREATE function findMissingNumber() that accept argument arr
+// SET largest TO arr[0]
+// SET lowest TO arr[0]
+// FOR i FROM 0 TO lENGTH OF arr - 1
+//      IF arr[i] > largest THEN
+//           largest = arr[i]
+//      ELSE IF arr[i] < lowest THEN
+//           lowest = arr[i]
+//      ENDIF
+// ENDFOR
+// SET newArr TO EMPTY array
+// FOR i FROM lowest TO largest
+//      PUSH i TO newArr
+// ENDFOR
+// LET sumOfNewArr TO 0
+// FOR i FROM 0 TO LENGTH OF newArr - 1
+//      sumOfNewArr += newArr[i]
+// ENDFOR
+// LET sumOfArr TO 0
+// FOR i FROM 0 TO LENGTH OF arr - 1
+//      sumOfArr += arr[i]
+// RETURN sumOfNewArr - sumOfArr
+// END
+
+const arr = [1, 2, 4, 5];
+
+function findMissingNumber(arr) {
+    // Find the largest and lowest number.
+    let largest = arr[0];
+    let lowest = arr[0];
+    // for (let i = 0; i < arr.length; i++) {
+    //     if (arr[i] > largest) largest = arr[i];
+    //     else if (arr[i] < lowest) lowest = arr[i];
+    // }
+    arr.forEach(num => {
+        if (num > largest) largest = num;
+        else if (num < lowest) lowest = num;
+    });
+
+    // Create newArr in range of lowest to largest.
+    let newArr = [];
+    for (let i = lowest; i <= largest; i++) {
+        newArr.push(i);
+    }
+
+    // Sum the newArr and arr.
+    let sumOfNewArr = 0;
+    // for (let i = 0; i < newArr.length; i++) {
+    //     sumOfNewArr += newArr[i];
+    // }
+    newArr.forEach(num => {
+        sumOfNewArr += num;
+    });
+    let sumOfArr = 0;
+    // for (let i = 0; i < arr.length; i++) {
+    //     sumOfArr += arr[i];
+    // }
+    arr.forEach(num => {
+        sumOfArr += num;
+    });
+
+    // Return sumOfNewArr - sumOfArr
+    return sumOfNewArr - sumOfArr;
+}
+
+console.log(findMissingNumber(arr));
+console.log('----------');
+
 // 3. Check if two arrays have common elements.
+// Goal: Write a function that checks whether two arrays share at least one common element. If they do, return or display "Common elements found", otherwise "No common elements".
+// Input: [1, 2, 3], [4, 5, 2]
+// Output: Common elements found
+
+// Pseudocode:
+// START
+// lET arr1 TO [1, 2, 3]
+// LET arr2 TO [4, 5, 2]
+// CREATE function checkCommonElements() that takes two arguments arr1 and arr2
+// SET count TO 0
+// FOR i FROM 0 TO lENGTH OF arr1 - 1
+//      FOR j FROM 0 TO LENGTH OF arr2 - 1
+//          IF arr1[i] === arr2[j] THEN
+//              INCREMENT count
+//          ENDIF
+//      ENDFOR
+// ENDFOR
+// IF count > 0 THEN
+//      DISPLAY 'Common elements found'
+// ELSE
+//      DISPLAY 'No common elements'
+// END
+
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 2];
+
+function checkCommonElements(arr1, arr2) {
+    let found = false;
+
+    for (let num1 of arr1) {
+        for (let num2 of arr2) {
+            if (num1 === num2) {
+                found = true
+                break;
+            };
+        }
+        if (found) break;
+    }
+    // for (let i = 0; i < arr1.length; i++) {
+    //     for (let j = 0; j < arr2.length; j++) {
+    //         if (arr[i] === arr[j]) found = true;
+    //         break;
+    //     };
+    // };
+    // arr1.forEach(num1 => {
+    //     arr2.forEach(num2 => {
+    //         if (num1 === num2) found = true;
+    //     });
+    // });
+
+    // if (count > 0) {
+    //     console.log('Common elements found');
+    // } else {
+    //     console.log('No common elements');
+    // }
+    found ? console.log('Common elements found') : console.log('No common elements');
+}
+
+checkCommonElements(arr1, arr2);
+console.log('----------');
 
 // 4. Generate patterns → triangle, square, or pyramid using loops.
+
+// i. Triangle
+// Output:
+// *
+// **
+// ***
+// ****
+// *****
+
+// Pseudocode:
+// START
+// CREATE function generateTriangle() THAT ACCEPTS ARGUMENT times
+// SET star TO '*'
+// FOR i FROM 0 TO times - 1
+//      DISPLAY star
+//      star += '*'
+// ENDFOR
+// END
+
+function generateTriangle(times) {
+    let star = '*';
+    for (let i = 0; i < times; i++) {
+        console.log(star);
+        star += '*';
+    }
+}
+generateTriangle(5);
+console.log('----------');
+
+// ii. Square
+// Output:
+// *****
+// *****
+// *****
+// *****
+// *****
+
+// Tips: 
+// The outer loop controls the rows (how many lines).
+// The inner loop controls the columns (what’s printed per line).
+
+// Pseudocode:
+// START
+// CREATE function generateSquare() THAT ACCEPTS ARGUMENT times
+// FOR i FROM 0 TO times - 1
+//      SET star TO ''
+//      FOR j FROM 0 TO j < times  
+//          star += '*'
+//      ENDFOR
+//      DISPLAY star
+// ENDFOR
+
+function generateSquare(times) {
+    for (let i = 0; i < times; i++) {
+        let star = '';
+        for (let j = 0; j < times; j++) {
+            star += '*';
+        }
+        console.log(star);
+    };
+}
+generateSquare(5);
+console.log('----------');
+
+// ii. Square
+// Output:
+//     *
+//    ***
+//   *****
+//  *******
+// *********
+
+// Algorithm
+// 
+
+// Pseudocode:
+
+function generatePyramid(times) {
+    for (let i = 1; i <= times; i++) {     // Start at 1 for easier math
+        let spaces = times - i;            // Decrease each row
+        let stars = 2 * i - 1;             // Increase each row
+        console.log(' '.repeat(spaces) + '*'.repeat(stars));
+    }
+}
+generatePyramid(9);
 
 // 5. Bubble Sort (the classic algorithm that uses nested loops).
