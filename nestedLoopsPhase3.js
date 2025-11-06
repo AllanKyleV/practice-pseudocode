@@ -336,7 +336,7 @@ console.log('----------');
 // CREATE function generatePyramid() that accept argument times
 // FOR i FROM 1 TO times
 //      SET space = 2 * i - 1
-//      SET stars = times - 1
+//      SET stars = times - i
 //      DISPLAY `' '.repeat(space) + '*'.repeat(stars)`
 // ENDFOR
 // END
@@ -364,12 +364,47 @@ console.log('----------');
 // END
 
 function reversedPyramid(times) {
-    for (let i = 1; i <= times; i++) {
-        let spaces = 2 * i - 1;
-        let stars = times - i;
+    for (let i = times; i >= 1; i--) {
+        let spaces = times - i;
+        let stars = 2 * i - 1;
         console.log(' '.repeat(spaces) + '*'.repeat(stars));
     }
 }
 reversedPyramid(5);
+
+// iV. generateDiamond
+// Pseudocode:
+// START
+// CREATE a function generateDiamond() that ACCEPTS argument times
+// Algo i: Loop for upper part
+// FOR i from 1 TO times
+//      SET spaces TO times - i
+//      SET stars TO 2 * i - 1
+//      DISPLAY ' '.repeat(spaces) + '*'.repeat(stars)
+// ENDFOR
+// Algo ii: Loop for bottom part
+// FOR i FROM times - 1 to 1
+//      SET spaces TO times - i
+//      SET stars TO 2 * i - 1
+//      DISPLAY ' '.repeat(spaces) + '*'.repeat(stars)
+// ENDFOR
+// END
+
+function generateDiamond(times) {
+    // Algo i: Loop for upper part
+    for (let i = 1; i <= times; i++) {
+        let spaces = times - i;
+        let stars = 2 * i - 1;
+        console.log(' '.repeat(spaces) + '*'.repeat(stars));
+    }
+    // Algo ii: Loop for bottom part
+    for (let i = times - 1; i >= 1; i--) {
+        let spaces = times - i;
+        let stars = 2 * i - 1;
+        console.log(' '.repeat(spaces) + '*'.repeat(stars));
+    }
+}
+
+generateDiamond(5);
 
 // 5. Bubble Sort (the classic algorithm that uses nested loops).
