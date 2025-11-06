@@ -319,7 +319,7 @@ function generateSquare(times) {
 generateSquare(5);
 console.log('----------');
 
-// ii. Square
+// ii. Pyramid
 // Output:
 //     *
 //    ***
@@ -327,10 +327,19 @@ console.log('----------');
 //  *******
 // *********
 
-// Algorithm
-// 
+// Algorithm:
+// Inner Loop
+// Display
 
-// Pseudocode:
+// Pseudocode
+// START
+// CREATE function generatePyramid() that accept argument times
+// FOR i FROM 1 TO times
+//      SET space = 2 * i - 1
+//      SET stars = times - 1
+//      DISPLAY `' '.repeat(space) + '*'.repeat(stars)`
+// ENDFOR
+// END
 
 function generatePyramid(times) {
     for (let i = 1; i <= times; i++) {     // Start at 1 for easier math
@@ -340,5 +349,27 @@ function generatePyramid(times) {
     }
 }
 generatePyramid(9);
+// Think outside the box, take advantage of traditional for loops.
+console.log('----------');
+
+// iii. Reversed pyramid
+// Pseudocode:
+// START
+// CREATE function reversedPyramid() that accepts an argument times
+// FOR i FROM  times TO 1s
+//      SET spaces = times + 1
+//      SET stars = 2 * i + 1
+//      DISPLAY ' '.repeat(spaces) + '*'.repeat(stars)
+// ENDFOR
+// END
+
+function reversedPyramid(times) {
+    for (let i = 1; i <= times; i++) {
+        let spaces = 2 * i - 1;
+        let stars = times - i;
+        console.log(' '.repeat(spaces) + '*'.repeat(stars));
+    }
+}
+reversedPyramid(5);
 
 // 5. Bubble Sort (the classic algorithm that uses nested loops).
