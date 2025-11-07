@@ -410,3 +410,80 @@ generateDiamond(5);
 console.log('----------');
 
 // 5. Bubble Sort (the classic algorithm that uses nested loops).
+// Algorithm:
+// i. Outerloop for how many passes you need
+// ii. Compare and swap adjacent elements in inner loop
+// iii. Each pass pushes the largest unsorted element to the end
+
+// Pseudocode:
+// START
+// CREATE function bubbleSort() that accept array argument
+// FOR i FROM 0 TO the LENGTH OF array - 1
+//      FOR j from 0 TO THE LENGTH OF array - 1
+//          SET next TO array[j + 1]
+//          IF array[j] > next THEN
+//              SWAP array[j] and array[j + 1]
+//          ENDIF
+//      ENDFOR
+// ENDFOR
+// RETURN array
+// END
+
+function bubbleSort(array) {
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array.length - i - 1; j++) {
+            // let temp = array[j];
+            // let next = array[j + 1];
+            // if (temp > next) {
+            //     array[j] = next;
+            //     array[j + 1] = temp;
+            // }
+            if (array[j] > array[j + 1]) {
+                [array[j], array[j + 1]] = [array[j + 1], array[j]];
+            }
+        };
+    };
+    return array;
+}
+console.log(bubbleSort([5, 3, 8, 2]));
+console.log('----------');
+
+// Optional challenge:
+// Using flag to optimized bubble sort.
+
+// START
+// SET swapped TO false
+// FOR each pass
+//     SET swapped TO false
+//     FOR each adjacent pair
+//         IF left > right
+//             SWAP them
+//             SET swapped TO true
+//         ENDIF
+//     ENDFOR
+//     IF swapped IS false
+//         BREAK (array is sorted)
+//     ENDIF
+// ENDFOR
+// RETURN array
+// END
+
+function optimizedBubbleSort(array) {
+    let swapped = false;
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array.length - i - 1; j++) {
+            if (array[j] > array[j + 1]) {
+                [array[j], array[j + 1]] = [array[j + 1], array[j]];
+                swapped = true;
+            }
+        }
+        if (swapped = false) {
+            break;
+        }
+    }
+    return array;
+}
+console.log(optimizedBubbleSort([5, 3, 8, 2]));
+console.log(optimizedBubbleSort([1, 2, 5, 7]));
+
+// End!
