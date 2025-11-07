@@ -371,6 +371,7 @@ function reversedPyramid(times) {
     }
 }
 reversedPyramid(5);
+console.log('----------');
 
 // iV. generateDiamond
 // Pseudocode:
@@ -404,7 +405,8 @@ function generateDiamond(times) {
         console.log(' '.repeat(spaces) + '*'.repeat(stars));
     }
 }
-
+    
 generateDiamond(5);
+console.log('----------');
 
 // 5. Bubble Sort (the classic algorithm that uses nested loops).
