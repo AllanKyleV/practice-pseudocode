@@ -145,4 +145,135 @@ console.log(maxMatrix([
 ]));
 console.log('-------------------');
 
-// Exercise 4: 
+// Exercise 4: Transpose a Matrix
+// Goal: witch rows and columns of a 2D array.
+// Input: [
+//   [1, 2, 3], 
+//   [4, 5, 6]
+// ]
+// Output: [
+//   [1, 4],  --- arrays[0][0], arrays[1][0]
+//   [2, 5],  --- arryays[0][1], arrays[1][1]
+//   [3, 6]   --- arrays[0][2], arrays[1][2]
+// ]
+// 
+// Logic: 
+// Outer loop - rows
+// Inner loop - elements
+// Pseudocode:
+// CREATE a function transposeMatrix that accept argument arrays
+// SET newArray to empty array
+// FOR i FROM 0 to length of arrays[0] - 1
+//    SET rows to []
+//    FOR j FROM 0 to length arrays - 1
+//      push arrays[j][i] to rows
+//    ENFOR
+// push rows to newArray
+// ENDFOR
+// RETURN newArray
+// END
+
+// function transposeMatrix(arrays) {
+//   return [
+//     [arrays[0][0], arrays[1][0]],
+//     [arrays[0][1], arrays[1][1]],
+//     [arrays[0][2], arrays[1][2]]
+//   ]
+// }
+
+function transposeMatrix(arrays) {
+  let newArray = [];
+  for (let i = 0; i < arrays[0].length; i++) {
+    let rows = [];
+    for (let j = 0; j < arrays.length; j++) {
+      rows.push(arrays[j][i]);
+    }
+    newArray.push(rows);
+  }
+  return newArray;
+}
+
+console.log(transposeMatrix([
+  [1, 2, 3],
+  [4, 5, 6]
+]));
+console.log('-------------------');
+
+// Exercise 5: Check if a 2D array is symmetric
+// Goal: Determine if a 2D array is symmetric.
+// A matrix is symmetric if it’s equal to its transpose.
+
+// Algorithm: Combine all elements in arrays to one array - a
+// Combine all elements in arrays to one array but in transpose order - b
+// Return true if date in a and b is the same, else false.
+
+// Pseudocode: 
+// START
+// SET a TO empty array
+// SET b TO empty array
+// FOR row of arrays
+//    FOR element of row
+//      push element to a
+//    ENDFOR
+// ENDFOR
+// FOR
+// FOR i from 0 to length arrays -1
+//    FOR j from 0 to length arrays - 1
+//      push array[j][i]
+//    ENDFOR
+// ENDFOR
+// IF length of a is not equal to length of b THEN
+//    RETURN false
+// FOR i FROM 0 TO length OF a - 1
+//    IF a[i] !== b[i] RETURN false
+//    ENDIF
+// ENDFOR
+// RETURN true;
+// END
+
+// function isSymmetric(arrays) {
+//   let a = [];
+//   let b = [];
+
+//   for (let rows of arrays) {
+//     for (let element of rows) {
+//       a.push(element);
+//     }
+//   }
+
+//   for (let i = 0; i < arrays.length; i++) {
+//     for (let j = 0; j < arrays.length; j++) {
+//       b.push(arrays[j][i]);
+//     }
+//   }
+
+//   if (a.length !== b.length) return false;
+//   for (let i = 0; i < a.length; i++) {
+//     if(a[i] !== b[i]) return false;
+//   }
+
+//   return true;
+// }
+
+function isSymmetric(arrays) {
+  for (let i = 0; i < arrays.length; i++) {
+    for (let j = 0; j < arrays.length; j++) {
+      if (arrays[i][j] !== arrays[j][i]) return false;
+    }
+  }
+  return true;
+}
+
+console.log(isSymmetric([
+  [1, 0, 3],
+  [2, 5, 6],
+  [3, 6, 9]
+]));
+// false
+
+console.log(isSymmetric([
+  [1, 2, 3],
+  [2, 5, 6],
+  [3, 6, 9]
+]));
+// true
