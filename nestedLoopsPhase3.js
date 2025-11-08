@@ -469,17 +469,15 @@ console.log('----------');
 // END
 
 function optimizedBubbleSort(array) {
-    let swapped = false;
     for (let i = 0; i < array.length; i++) {
+        let swapped = false;
         for (let j = 0; j < array.length - i - 1; j++) {
             if (array[j] > array[j + 1]) {
                 [array[j], array[j + 1]] = [array[j + 1], array[j]];
                 swapped = true;
             }
         }
-        if (swapped = false) {
-            break;
-        }
+        if (swapped === false) break;
     }
     return array;
 }
