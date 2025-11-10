@@ -243,4 +243,33 @@ console.log(transposeMatrix([
     [4, 5, 6]
 ]));
 
-// Needs charging, be back!
+// Exercise 5: Check if a 2D array (matrix) is symmetric
+
+// Logic: Check if matrix[i][j] === matrix[j][i];
+
+// Pseudocode:
+// START
+// CREATE function isSymmetric() that accepts matrix
+// FOR i from 0 to length of matrix - 1
+//      FOR j from 0 to length of matrix - 1 
+//          IF matrix[i][j] !== matrix[j][i] THEN
+//              RETURN false
+//      ENDFOR
+// ENDFOR
+// RETURN true
+// END
+
+function isSymmetric(matrix) {
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < i; j++) {
+            if (matrix[i][j] !== matrix[j][i]) return false;
+        }
+    }
+    return true;
+}
+
+console.log(isSymmetric([
+    [1, 0, 3],
+    [2, 4, 5],
+    [3, 5, 6]
+]))
