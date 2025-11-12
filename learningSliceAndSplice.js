@@ -142,3 +142,145 @@ console.log('----------------')
 // 3. Need to know a little about these i--, et the end.
 // 4. I think I should know deep about this i++ at the end.
 // 5. Thanks!
+
+// Level 4: Slice & Splice + Array Restructuring Algorithms
+// Challenge 1: Chunk an Array
+{
+    let arr = [1, 2, 3, 4, 5, 6, 7];
+    // Split the array into subarrays of size 3 dynamically
+    // Result: [[1,2,3],[4,5,6],[7]]
+
+    // Logic: loop array, splice(0, 3) push
+
+    // Pseudocode:
+    // START
+    // SET subArrays to empty array
+    // FOR i from 0 to length of arr - 1
+    //      IF arr length >= 3 THEN
+    //          PUSH arr.splice(0, 3) to subArrays
+    //      ENDIF
+    // ENDFOR
+    //      PUSH arr to subArrays
+    // DISPLAY subArrays
+    // END
+
+    // let subArrays = [];
+    // for (let i = 0; i < arr.length; i++) {
+    //     if (arr.length >= 3 ) subArrays.push(arr.splice(0, 3));
+    // }
+    // subArrays.push(arr);
+    // console.log(subArrays);
+
+    // Refactoring using while loops:
+    // Use while when array length is shrinking dynamically, avoids looping extra times.
+
+    // let subArrays = [];
+    // while (arr.length > 0) {
+    //     subArrays.push(arr.splice(0, chunkSize));
+    // }
+    // console.log(subArrays); // [[1,2,3],[4,5,6],[7]]
+    // We're not needing the push for [7] here.
+}
+
+// Challenge 2: Rotate Array Right by N
+{
+    let nums = [1, 2, 3, 4, 5];
+    let n = 2; // rotate right by 2 positions
+    // Goal: [4, 5, 1, 2, 3]
+
+    // Logic: Loop array, 
+}
+
+// Challenge 3: Filter and Reorder.
+// Filter numbers that are greater than or equal to 5.
+// Logic: Get the number greater than 5, push it to new array
+// Then push the rest of the array
+
+// Pseudocode:
+// START
+// SET num to 5
+// SET higher to empty array
+// SET lower to empty array
+// FOR i from 0 to length of items - 1
+//      IF item[i] >= num THEN
+//          push item[i] to higher
+//      ELSE
+//          push item[i] to lower
+//      ENDIF
+// ENDFOR
+// return higher.concat(lower)
+
+// Logic: Target the number that is less than 5, remove it then add it/them at the end.
+
+
+// Pseducode for another way using splice():
+// Start
+// 
+
+{
+    let items = [5, 2, 9, 1, 5, 6];
+    // let num = 5;
+    // let higher = [];
+    // let lower = [];
+    // for (let i = 0; i < items.length; i++) {
+    //     items[i] >= num ? higher.push(items[i]) : lower.push(items[i]);
+    // }
+    // console.log(higher.concat(lower));
+
+
+    // let num = 5;
+    // for (let i = 0; i < items.length; i++) {
+    //     if (items[i] < num) {
+    //         items.push(items[i]);
+    //         items.splice(i, 1);
+    //     }
+    // }
+    // console.log(items);
+    let num = 5;
+
+    for (let i = items.length - 1; i >= 0; i--) {
+        if (items[i] < num) {
+            items.push(items[i]);
+            items.splice(i, 1);
+        }
+    }
+    console.log(items); // [5, 9, 5, 6, 2, 1]
+}
+
+// Moving on to challenge 4.
+// Challenge 4: Merge Arrays Alternatively
+
+// Logic: 
+// Loop length of 2 arrays.
+// Loop both inside total length.
+
+// Pseudocode:
+// start
+// set length = arr1.length + arr2.length
+// set result to []
+// for i from 0 to length - 1
+//      for j from 0 to length of arr1 - 1
+//          push arr1[i] to result
+//      endfor
+//      for k from o to length of arr2 - 1
+//          push arr[2] to result
+//      endfor
+// endfor
+// display result
+// end
+
+{
+    let arr1 = [1, 2, 3];
+    let arr2 = ['A', 'B', 'C', 'D'];
+    let result = [];
+
+    let length = Math.max(arr1.length, arr2.length);
+    for (let i = 0; i < length; i++) {
+        // let [num1] = arr1.slice(i, i + 1);
+        // let [num2] = arr2.slice(i, i + 1);
+
+        if (arr1[i] !== undefined) result.push(arr1[i]);
+        if (arr2[i] !== undefined) result.push(arr2[i]);
+    }
+    console.log(result);
+}
